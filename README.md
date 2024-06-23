@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="README.ja.md">日本語版READMEはこちら</a>
+  <a href="https://github.com/no4h-d3v/formruler/blob/master/README-ja.md">日本語版READMEはこちら</a>
 </p>
 
 <h1 align="center">Welcome to FormRuler 👋</h1>
