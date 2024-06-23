@@ -1,0 +1,15 @@
+{
+  "name": "formruler",
+  "version": "1.0.0",
+  "main": "formruler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Noah <no4h.d3v@gmail.com>",
+  "license": "MIT",
+  "keywords": ["form", "validation", "jquery-plugin"],
+  "description": "A form validation library",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
