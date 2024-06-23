@@ -1,8 +1,8 @@
-<p align="center">
+<p>
   <a href="https://github.com/no4h-d3v/formruler/blob/master/README.md">English README is here</a>
 </p>
 
-<h1 align="center">FormRulerへようこそ 👋</h1>
+<h1>FormRuler</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
