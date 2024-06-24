@@ -4,13 +4,27 @@
 
 <h1>FormRuler</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.3-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
 
 > A form validation library
+
+## Important Points
+
+1. **jQuery Dependency**: This library depends on jQuery. Please ensure jQuery is loaded before using this library.
+
+2. **Form Submission Behavior**: FormRuler only performs validation and does not automatically submit the form. The submission process must be explicitly implemented within the `onValid` callback.
+
+3. **Field Identification**: Validation rules are applied based on the `name` attribute of form elements. Ensure each field has the appropriate `name` attribute set.
+
+4. **Validation Timing**: Validation is triggered on input, change, and form submission events, but the form will not be automatically submitted during these events.
+
+5. **Target Elements**: Elements matching the `.form-control:not(:disabled), .form-check-input:not(:disabled)` selector will be subject to validation.
+
+6. **Error Message Display**: By default, error messages will be displayed in elements with the `.invalid-feedback` class.
 
 ## Table of Contents
 

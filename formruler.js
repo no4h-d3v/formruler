@@ -23,7 +23,7 @@
 
             // Handle full-width and half-width character blocking
             ['blockFullWidth', 'blockHalfWidth'].forEach(rule => {
-                if (rules[rule]) {
+                if (rules && rules[rule]) {
                     const newValue = value.split('').filter(char =>
                         rule === 'blockFullWidth' ? !isFullWidthChar(char) : !isHalfWidthChar(char)
                     ).join('');
@@ -146,7 +146,7 @@
                 targetSelector.html(errorMessages.join("<br>")).show();
             } else {
                 clearErrors(input, feedbackSelector);
-                if (rules.bothRequired) {
+                if (rules && rules.bothRequired) {
                     const otherField = $(rules.bothRequired);
                     otherField.removeClass("is-invalid").addClass("is-valid");
                 }

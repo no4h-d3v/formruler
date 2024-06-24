@@ -4,13 +4,27 @@
 
 <h1>FormRuler</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.3-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
 
 > フォームバリデーションライブラリ
+
+## 重要ポイント
+
+1. **jQuery依存**: このライブラリはjQueryに依存しています。使用前にjQueryをロードしてください。
+
+2. **フォーム送信の挙動**: FormRulerはフォームの検証のみを行い、自動的にフォームを送信することはありません。送信処理は`onValid`コールバック内で明示的に実装する必要があります。
+
+3. **フィールドの特定**: バリデーションルールはフォーム要素の`name`属性に基づいて適用されます。各フィールドに適切な`name`属性を設定してください。
+
+4. **バリデーションのタイミング**: バリデーションは入力時、変更時、およびフォーム送信時にトリガーされますが、これらのイベントで自動的にフォームが送信されることはありません。
+
+5. **対象要素**: `.form-control:not(:disabled), .form-check-input:not(:disabled)`セレクタに一致する要素が検証対象となります。
+
+6. **エラーメッセージの表示**: デフォルトでは`.invalid-feedback`クラスを持つ要素にエラーメッセージが表示されます。
 
 ## 目次
 
