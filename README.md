@@ -4,7 +4,7 @@
 
 <h1>FormRuler</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-2.0.1-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -455,7 +455,7 @@ FormRuler performs validation at the following times:
 3. **Dependent Field Change**:
    - If dependencies are set using the `skipRulesIf` option, related fields are revalidated when the dependent field's value changes.
 
-## CSS
+## Css Classes
 
 ### Applying CSS Classes
 

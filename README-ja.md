@@ -4,7 +4,7 @@
 
 <h1>FormRuler</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-2.0.1-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -36,7 +36,7 @@ npm install formruler
 <script src="path/to/formruler.js"></script>
 ```
 
-## 基本的な使用方法
+## 基本的な使い方
 
 このライブラリを使用するには、以下の手順に従います：
 
@@ -111,7 +111,7 @@ $(document).ready(function() {
 - `triggerButtonId` で、フォーム送信を開始するボタンの ID を指定しています。
 - `onValid` と `onInvalid` コールバックで、バリデーション結果に応じた処理を定義しています。
 
-## 設定
+## 利用可能な設定
 
 ### 1. rules（ルール）
 
@@ -457,7 +457,7 @@ FormRulerは以下のタイミングでバリデーションを実行します�
 3. **依存フィールドの変更時**:
    - `skipRulesIf`オプションで依存関係が設定されている場合、依存フィールドの値が変更されると、関連するフィールドのバリデーションが再実行されます。
 
-## CSS
+## CSSクラス
 
 ### CSSクラスの適用
 
