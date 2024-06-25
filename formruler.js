@@ -63,7 +63,7 @@
             });
 
             // Skip further validation if empty fields are allowed and no required rules failed
-            if (!rules.required && !rules.bothRequired && !value) {
+            if (!rules.required && !rules.bothOrNoneRequired && !rules.eitherOrBothRequired && !value) {
                 if (errorMessages.length === 0) {
                     clearErrors(input, feedbackSelector);
                     return isValid;
@@ -73,17 +73,30 @@
             // Standard validations
             const validations = {
                 required: () => !value && messages.required,
-                bothRequired: () => {
-                    const otherField = $(rules.bothRequired);
+                bothOrNoneRequired: () => {
+                    const otherField = $(rules.bothOrNoneRequired);
                     const otherValue = otherField.val();
                     if (!value && !otherValue) {
                         input.removeClass("is-invalid");
                         otherField.removeClass("is-invalid");
                     } else if (!value || !otherValue) {
-                        return messages.bothRequired;
+                        return messages.bothOrNoneRequired;
                     } else {
                         input.removeClass("is-invalid");
                         otherField.removeClass("is-invalid");
+                    }
+                },
+                eitherOrBothRequired: () => {
+                    if (rules.eitherOrBothRequired) {
+                        const otherField = $(rules.eitherOrBothRequired);
+                        const otherValue = otherField.val();
+                        if (!value && !otherValue) {
+                            otherField.addClass("is-invalid");
+                            return messages.eitherOrBothRequired;
+                        } else {
+                            input.removeClass("is-invalid");
+                            otherField.removeClass("is-invalid");
+                        }
                     }
                 },
                 checkbox: () => !input.is(":checked") && messages.checkbox,
@@ -111,6 +124,14 @@
                     const startDate = $(startSelector).val();
                     const endDate = $(endSelector).val();
                     return startDate && endDate && new Date(startDate) > new Date(endDate) && messages.dateRange;
+                },
+                timeRange: () => {
+                    const [startSelector, endSelector] = rules.timeRange;
+                    const startTime = $(startSelector).val();
+                    const endTime = $(endSelector).val();
+                    if (startTime && endTime && startTime > endTime) {
+                        return messages.timeRange;
+                    }
                 },
                 validOption: () => !rules.validOption.includes(value) && messages.validOption
             };
@@ -146,9 +167,10 @@
                 targetSelector.html(errorMessages.join("<br>")).show();
             } else {
                 clearErrors(input, feedbackSelector);
-                if (rules && rules.bothRequired) {
-                    const otherField = $(rules.bothRequired);
+                if (rules && (rules.bothOrNoneRequired || rules.eitherOrBothRequired)) {
+                    const otherField = $(rules.bothOrNoneRequired || rules.eitherOrBothRequired);
                     otherField.removeClass("is-invalid").addClass("is-valid");
+                    clearErrors(otherField, feedbackSelector);
                 }
             }
         };
@@ -171,6 +193,11 @@
 
                 if (skipRulesIf?.dependentId) {
                     $(`#${skipRulesIf.dependentId}`).on("input change", validateThisField);
+                }
+
+                if (rules && (rules.bothOrNoneRequired || rules.eitherOrBothRequired)) {
+                    const otherField = $(rules.bothOrNoneRequired || rules.eitherOrBothRequired);
+                    otherField.on("input change", validateThisField);
                 }
             });
 
